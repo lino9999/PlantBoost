@@ -2,19 +2,47 @@ name: PlantBoost
 version: '1.0'
 main: com.Lino.plantBoost.PlantBoost
 api-version: '1.21'
+author: Lino
+description: Advanced plant growth boost plugin with many features
+
 commands:
   plantboost:
-    description: Gives custom plant boost items or reload config
-    usage: /plantboost give <type> [player] or /reload
-    permission: plantboost.give
-  reload:
-    description: Reload PlantBoost config
-    usage: /reload
-    permission: plantboost.reload
+    description: Main PlantBoost command
+    usage: /<command> [give|reload|stop|info|stats|list]
+    aliases: [pb, pboost]
+
 permissions:
-  plantboost.give:
-    description: Permission to give boost items
+  plantboost.*:
+    description: All PlantBoost permissions
     default: op
+    children:
+      plantboost.use: true
+      plantboost.give: true
+      plantboost.reload: true
+      plantboost.stop: true
+      plantboost.stats: true
+      plantboost.cooldown.bypass: true
+
+  plantboost.use:
+    description: Allows using boost items
+    default: true
+
+  plantboost.give:
+    description: Allows giving boosts with /plantboost give
+    default: op
+
   plantboost.reload:
-    description: Permission to reload plugin config
+    description: Allows reloading the configuration
+    default: op
+
+  plantboost.stop:
+    description: Allows stopping active boosts
+    default: op
+
+  plantboost.stats:
+    description: Allows viewing boost statistics
+    default: true
+
+  plantboost.cooldown.bypass:
+    description: Bypasses boost cooldown
     default: op

@@ -1,25 +1,115 @@
-# config.yml
-boosts:
-  short:
-    duration: 10
-    speed: 100
-    material: WHEAT_SEEDS
-  medium:
-    duration: 30
-    speed: 500
-    material: DIAMOND
-  long:
-    duration: 60
-    speed: 1000
-    material: NETHER_STAR
+# PlantBoost Configuration
+# Plugin migliorato per boost crescita piante
 
-messages:
-  bossbar: "§aBoost piante attivo da %player% §7| Tempo rimasto: %time% minuti"
-  title-start:
-    title: "§bBoost piante!"
-    subtitle: "§7Attivato da %player%"
-  title-end:
-    title: "§cBoost piante finito!"
-    subtitle: "§7Sponsorizzato da %player%"
-
+# Intervallo annunci in chat (minuti)
 announce-interval: 5
+
+# Cooldown tra utilizzi di boost (minuti, 0 per disabilitare)
+cooldown-minutes: 30
+
+# Permettere di estendere boost attivi
+allow-stack: false
+
+# Durata massima quando si estende un boost (minuti)
+max-stack-duration: 120
+
+# Salvare statistiche giocatori
+save-statistics: true
+
+# Effetti visivi e sonori
+effects:
+  particles: true
+  sounds: true
+
+# Messaggi personalizzabili (supporta colori con &)
+messages:
+  title-start:
+    title: "&a&lBoost %type% Attivato!"
+    subtitle: "&7Attivato da &e%player% &7per &e%duration% minuti"
+
+  title-end:
+    title: "&c&lBoost Terminato!"
+    subtitle: "&7Grazie a &e%player% &7per il boost!"
+
+  bossbar: "&a⚡ &fBoost &e%type% &fda &b%player% &8| &7Tempo: &e%time%"
+  announce: "&e⚠ &7Ancora &a%time% &7di boost piante attivo!"
+
+# Tipi di boost configurabili
+boosts:
+  # Boost piccolo
+  small:
+    duration: 5                    # Durata in minuti
+    speed: 10                      # Velocità tick (vanilla = 3)
+    material: WHEAT_SEEDS          # Material dell'oggetto
+    display-name: "&a✦ Boost Piccolo ✦"
+    glowing: true                  # Oggetto luminoso
+    lore:
+      - "&7━━━━━━━━━━━━━━━━━"
+      - "&e⏱ Durata: &f5 minuti"
+      - "&e⚡ Velocità: &f10x"
+      - "&7━━━━━━━━━━━━━━━━━"
+      - ""
+      - "&7Un piccolo boost per"
+      - "&7accelerare le tue piante!"
+    allowed-worlds: []             # Vuoto = tutti i mondi
+
+  # Boost medio
+  medium:
+    duration: 15
+    speed: 25
+    material: GOLDEN_CARROT
+    display-name: "&6✦ Boost Medio ✦"
+    glowing: true
+    lore:
+      - "&7━━━━━━━━━━━━━━━━━"
+      - "&e⏱ Durata: &f15 minuti"
+      - "&e⚡ Velocità: &f25x"
+      - "&7━━━━━━━━━━━━━━━━━"
+      - ""
+      - "&7Un boost moderato per"
+      - "&7crescita accelerata!"
+    allowed-worlds: []
+
+  # Boost grande
+  large:
+    duration: 30
+    speed: 50
+    material: ENCHANTED_GOLDEN_APPLE
+    display-name: "&d✦ Boost Grande ✦"
+    glowing: true
+    lore:
+      - "&7━━━━━━━━━━━━━━━━━"
+      - "&e⏱ Durata: &f30 minuti"
+      - "&e⚡ Velocità: &f50x"
+      - "&7━━━━━━━━━━━━━━━━━"
+      - ""
+      - "&7Un potente boost per"
+      - "&7crescita super veloce!"
+    allowed-worlds: []
+
+  # Boost epico
+  epic:
+    duration: 60
+    speed: 100
+    material: NETHER_STAR
+    display-name: "&5✦ Boost Epico ✦"
+    glowing: true
+    lore:
+      - "&7━━━━━━━━━━━━━━━━━"
+      - "&e⏱ Durata: &f1 ora"
+      - "&e⚡ Velocità: &f100x"
+      - "&7━━━━━━━━━━━━━━━━━"
+      - ""
+      - "&5&lBOOST LEGGENDARIO!"
+      - "&7Crescita istantanea!"
+    allowed-worlds:
+      - world
+      - world_nether
+
+# Permessi richiesti:
+# plantboost.use - Usare oggetti boost
+# plantboost.give - Comando /plantboost give
+# plantboost.reload - Comando /plantboost reload
+# plantboost.stop - Comando /plantboost stop
+# plantboost.stats - Comando /plantboost stats
+# plantboost.cooldown.bypass - Bypass cooldown
