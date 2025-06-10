@@ -1,0 +1,20 @@
+name: PlantBoost
+version: '1.0'
+main: com.Lino.plantBoost.PlantBoost
+api-version: '1.21'
+commands:
+  plantboost:
+    description: Gives custom plant boost items or reload config
+    usage: /plantboost give <type> [player] or /reload
+    permission: plantboost.give
+  reload:
+    description: Reload PlantBoost config
+    usage: /reload
+    permission: plantboost.reload
+permissions:
+  plantboost.give:
+    description: Permission to give boost items
+    default: op
+  plantboost.reload:
+    description: Permission to reload plugin config
+    default: op

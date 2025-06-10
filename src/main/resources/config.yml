@@ -1,0 +1,25 @@
+# config.yml
+boosts:
+  short:
+    duration: 10
+    speed: 100
+    material: WHEAT_SEEDS
+  medium:
+    duration: 30
+    speed: 500
+    material: DIAMOND
+  long:
+    duration: 60
+    speed: 1000
+    material: NETHER_STAR
+
+messages:
+  bossbar: "§aBoost piante attivo da %player% §7| Tempo rimasto: %time% minuti"
+  title-start:
+    title: "§bBoost piante!"
+    subtitle: "§7Attivato da %player%"
+  title-end:
+    title: "§cBoost piante finito!"
+    subtitle: "§7Sponsorizzato da %player%"
+
+announce-interval: 5
